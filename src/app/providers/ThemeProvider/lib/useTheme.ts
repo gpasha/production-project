@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import ThemeContext, { LOCALSTORAGE_THEME_KEY, Theme } from "./ThemeContext"
+import { useContext } from 'react'
+import ThemeContext, { LOCALSTORAGE_THEME_KEY, Theme } from './ThemeContext'
 
 type ThemeResult = {
     theme: Theme
