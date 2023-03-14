@@ -5,23 +5,17 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useTheme } from 'app/providers/ThemeProvider/index'
 import { About } from 'pages/About'
 import { Main } from 'pages/Main'
+import { AppRouter } from './providers/router'
+import { Navbar } from 'widgets/Navbar'
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 
 export const App = () => {
 
-    const { theme, toggleTheme } = useTheme()
+    const { theme } = useTheme()
 
     return <div className={classNames('app', { selected: true, hovered: false }, [theme, 'cls2', 'cls3'])}>
-        <div>
-            <button onClick={toggleTheme}>Change Theme</button>
-        </div>
-        <Link to='/'>Home</Link>
-        {' / '}
-        <Link to='/about'>About</Link>
-        <Suspense fallback={<h1>Loading...</h1>}>
-            <Routes>
-                <Route path='/about' element={<About />} />
-                <Route path='/' element={<Main />} />
-            </Routes>
-        </Suspense>
+        <ThemeSwitcher />
+        <Navbar />
+        <AppRouter />
     </div>
 }
