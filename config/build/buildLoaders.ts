@@ -3,6 +3,21 @@ import webpack from 'webpack'
 
 export const buildLoaders = (isDev: boolean): webpack.RuleSetRule[] => {
 
+    const SVGLoader = {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    }
+
     const scssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -30,6 +45,8 @@ export const buildLoaders = (isDev: boolean): webpack.RuleSetRule[] => {
 
     return [
         typescriptPlugin,
-        scssLoader
+        scssLoader,
+        SVGLoader,
+        fileLoader
     ]
 }
