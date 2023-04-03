@@ -4,7 +4,7 @@ import { BuildOptions } from './types/config'
 export const buildDevServer = ({ port }: BuildOptions): DevServerConfiguration => {
     return {
         port: port,
-        static: './build',
+        // static: './build', // if include - do not work i18n 
         open: true,
         historyApiFallback: true
     }
