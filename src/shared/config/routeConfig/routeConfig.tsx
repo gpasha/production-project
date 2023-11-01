@@ -1,6 +1,6 @@
-import { About } from "pages/About"
-import { Main } from "pages/Main"
-import { RouteProps } from "react-router-dom"
+import { About } from 'pages/About'
+import { Main } from 'pages/Main'
+import { type RouteProps } from 'react-router-dom'
 
 export enum AppRoutes {
     MAIN = 'main',

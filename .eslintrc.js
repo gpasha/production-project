@@ -1,13 +1,15 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         "standard-with-typescript",
         "plugin:react/recommended",
+        "plugin:i18next/recommended"
     ],
     "overrides": [
         {
@@ -34,7 +36,8 @@ module.exports = {
     },
     "plugins": [
         "@typescript-eslint",
-        "react"
+        "react",
+        "i18next"
     ],
     "root": true,
     "rules": {
@@ -53,7 +56,8 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-floating-promises": "warn",
         "react/no-deprecated": "warn",
-        "@typescript-eslint/naming-convention": "warn"
+        "@typescript-eslint/naming-convention": "warn",
+        "i18next/no-literal-string": ["error", { markupOnly: true }]
     },
     globals: {
         "__IS_DEV__": true

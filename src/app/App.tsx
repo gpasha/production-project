@@ -6,15 +6,13 @@ import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { SideBar } from 'widgets/SideBar'
 
-
 export const App = () => {
-
     const { theme } = useTheme()
 
     return (
         <div className={classNames('app', { selected: true, hovered: false }, [theme, 'cls2', 'cls3'])}>
-            <Navbar />
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={<h1>{null}</h1>}>
+                <Navbar />
                 <div className='content-page'>
                     <SideBar />
                     <AppRouter />
