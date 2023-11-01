@@ -5,13 +5,14 @@ import { useTheme } from 'app/providers/ThemeProvider/index'
 import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { SideBar } from 'widgets/SideBar'
+import { PageLoader } from 'widgets/PageLoader'
 
 export const App = () => {
     const { theme } = useTheme()
 
     return (
         <div className={classNames('app', { selected: true, hovered: false }, [theme, 'cls2', 'cls3'])}>
-            <Suspense fallback={<h1>{null}</h1>}>
+            <Suspense fallback={<PageLoader />}>
                 <Navbar />
                 <div className='content-page'>
                     <SideBar />
