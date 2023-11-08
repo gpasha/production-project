@@ -17,10 +17,14 @@ module.exports = {
                 "node": true
             },
             "files": [
-                ".eslintrc.{js,cjs}"
+                ".eslintrc.{js,cjs}",
+                "**/scr/**/*.test.{ts,tsx}"
             ],
             "parserOptions": {
                 "sourceType": "script"
+            },
+            "rules": {
+                "i18next/no-literal-string": "off"
             }
         }
     ],
@@ -57,7 +61,13 @@ module.exports = {
         "@typescript-eslint/no-floating-promises": "warn",
         "react/no-deprecated": "warn",
         "@typescript-eslint/naming-convention": "warn",
-        "i18next/no-literal-string": ["error", { markupOnly: true }]
+        "i18next/no-literal-string": [
+            "error",
+            {
+                markupOnly: true,
+                ignoreAttribute: ["data-testid"]
+            }
+        ]
     },
     globals: {
         "__IS_DEV__": true
