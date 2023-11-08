@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path'
+
 // import type { Config } from 'jest'
 
 const config = {
@@ -34,12 +36,22 @@ const config = {
   moduleDirectories: [
     'node_modules'
   ],
+  modulePaths: [
+    '<rootDir>src'
+  ],
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
     // "**/__tests__/**/*.[jt]s?(x)",
     // "**/?(*.)+(spec|test).[tj]s?(x)"
   ],
-  rootDir: '../../'
+  rootDir: '../../',
+  setupFilesAfterEnv: [
+    '<rootDir>config/jest/setupTests.ts'
+  ],
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+  },
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
