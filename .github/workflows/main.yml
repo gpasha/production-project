@@ -1,5 +1,5 @@
 name: linting, testing, building
-on: 
+on:
   push:
     branches: [master]
   pull_request:
@@ -16,7 +16,9 @@ jobs:
       # - name: Starting Node.js ${{ matrix:node-version }}
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: "14"
+      - run: npm install -g bats
+      - run: bats -v
       - name: install modules
         run: npm install
       - name: build production project
