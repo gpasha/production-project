@@ -21,13 +21,14 @@ export const buildPlugins = (path: BuildPath, isDev: boolean): webpack.WebpackPl
         __IS_DEV__: JSON.stringify(isDev)
     })
 
-    const bundleAnalyzerPlugin = new BundleAnalyzerPlugin({ openAnalyzer: false })
+    // const bundleAnalyzerPlugin = new BundleAnalyzerPlugin({ openAnalyzer: false })
 
     const plugins = []
 
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin())
         plugins.push(new webpack.HotModuleReplacementPlugin())
+        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
     }
 
     return [
@@ -35,7 +36,7 @@ export const buildPlugins = (path: BuildPath, isDev: boolean): webpack.WebpackPl
         progressPlugin,
         miniCssExtractPlugin,
         definePlugin,
-        bundleAnalyzerPlugin,
+        // bundleAnalyzerPlugin,
         ...plugins
     ]
 }
