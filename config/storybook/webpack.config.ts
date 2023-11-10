@@ -1,5 +1,5 @@
-import webpack from 'webpack'
-import { BuildPath } from '../build/types/config'
+import type webpack from 'webpack'
+import { type BuildPath } from '../build/types/config'
 import path from 'path'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
 
@@ -14,9 +14,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config.resolve?.extensions?.push('.ts', '.tsx')
 
     // eslint-disable-next-line no-param-reassign
-    config.module!.rules = config.module!.rules!.map((rule: any) => {
-        if (/svg/.test(rule.test as string)) {
-            return {...rule, exclude: /\.svg$/i}
+    config.module.rules = config.module.rules.map((rule: any) => {
+        if ((rule.test as string).includes('svg')) {
+            return { ...rule, exclude: /\.svg$/i }
         }
         return rule
     })
