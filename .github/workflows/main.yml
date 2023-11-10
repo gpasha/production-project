@@ -7,18 +7,15 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    # strategy:
-    #   matrix:
-    #     node-version: [ 17.x ]
-
+    strategy:
+      matrix:
+        node-version: [17.x]
     steps:
-      - uses: actions/checkout@v4
-      # - name: Starting Node.js ${{ matrix:node-version }}
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          node-version: "14"
-      - run: npm install -g bats
-      - run: bats -v
+          node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm install
       - name: build production project
