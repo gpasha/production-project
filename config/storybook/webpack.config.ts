@@ -15,11 +15,14 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
     // eslint-disable-next-line no-param-reassign
     config.module.rules = config.module.rules.map((rule: any) => {
-        if ((rule.test as string).includes('svg')) {
+        // if ((rule.test as string).includes('svg')) {
+        // eslint-disable-next-line @typescript-eslint/prefer-includes
+        if (/svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i }
         }
         return rule
     })
+
     config.module?.rules?.push({
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
