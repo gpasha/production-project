@@ -9,5 +9,6 @@
   "Произошла непредвиденная ошибка": "An unexpected error occurred",
   "Выбросить ошибку": "Throw error",
   "Обновить страницу": "Reload the page",
-  "Свернуть": "Collapse"
+  "Свернуть": "Collapse",
+  "Увеличить": "Increment"
 }

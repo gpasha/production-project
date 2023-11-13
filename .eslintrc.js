@@ -61,13 +61,15 @@ module.exports = {
         "@typescript-eslint/no-floating-promises": "warn",
         "react/no-deprecated": "warn",
         "@typescript-eslint/naming-convention": "warn",
+        "@typescript-eslint/consistent-type-imports": "off",
         "i18next/no-literal-string": [
             "error",
             {
                 markupOnly: true,
                 ignoreAttribute: ["data-testid", "to"]
             }
-        ]
+        ],
+        "no-param-reassign": "off"
     },
     globals: {
         "__IS_DEV__": true
