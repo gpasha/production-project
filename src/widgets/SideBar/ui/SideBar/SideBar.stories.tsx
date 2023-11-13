@@ -2,12 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { SideBar } from './SideBar'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
+import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator'
 
 const meta = {
     title: 'widgets/SideBar',
     component: SideBar,
     parameters: { /* layout: 'centered' */ },
-    tags: ['autodocs']
+    tags: ['autodocs'],
+    decorators: [RouteDecorator]
 } satisfies Meta<typeof SideBar>
 
 export default meta
