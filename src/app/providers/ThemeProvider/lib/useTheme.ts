@@ -12,6 +12,7 @@ export const useTheme = (): ThemeResult => {
     const toggleTheme = () => {
         const updatedTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
         changeTheme(updatedTheme)
+        document.body.className = updatedTheme
         localStorage.setItem(LOCALSTORAGE_THEME_KEY, updatedTheme)
     }
 

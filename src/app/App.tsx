@@ -8,10 +8,8 @@ import { SideBar } from 'widgets/SideBar'
 import { PageLoader } from 'widgets/PageLoader'
 
 export const App = () => {
-    const { theme } = useTheme()
-
     return (
-        <div className={classNames('app', { selected: true, hovered: false }, [theme, 'cls2', 'cls3'])}>
+        <div className={classNames('app', { selected: true, hovered: false }, ['cls2', 'cls3'])}>
             <Suspense fallback={<PageLoader />}>
                 <Navbar />
                 <div className='content-page'>

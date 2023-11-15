@@ -3,10 +3,21 @@
 @import 'themes/dark';
 @import 'themes/light';
 
-.app {
+body {
     font: var(--font-m);
-    background-color: var(--bg-color);
     color: var(--primary-color);
+}
+
+// START for storybook (Modal component)
+.app_dark_theme {
+    font: var(--font-m);
+    color: var(--primary-color);
+}
+
+// END
+
+.app {
+    background-color: var(--bg-color);
     min-height: 100vh;
 }
 
