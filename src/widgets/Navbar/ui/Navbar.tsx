@@ -1,11 +1,9 @@
-/* eslint-disable i18next/no-literal-string */
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next'
-// import { BugButton } from 'app/providers/ErrorBoundary'
-import { Modal } from 'shared/ui/Modal'
 import { useCallback, useState } from 'react'
 import { Button, ButtonTheme } from 'shared/ui/Button'
+import { LoginModal } from 'features/AuthByUsername'
 
 interface NavbarProps {
     className?: string
@@ -15,22 +13,23 @@ export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation()
     const [isModalOpen, setIsModalOpen] = useState(false)
 
-    const onToggleModal = useCallback(() => {
-        setIsModalOpen(prev => !prev)
+    const onOpenModal = useCallback(() => {
+        setIsModalOpen(true)
+    }, [])
+
+    const onCloseModal = useCallback(() => {
+        setIsModalOpen(false)
     }, [])
 
     return <div className={classNames(cls.Navbar, {}, [className])}>
         <div className={cls.navLinks}>
-            {/* <BugButton /> */}
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
-                onClick={onToggleModal}
+                onClick={onOpenModal}
             >
                 {t('Войти')}
             </Button>
-            <Modal isOpen={isModalOpen} onClose={onToggleModal}>
-                lkasjfaksl fdja;lskdfj;as
-            </Modal>
+            <LoginModal isOpen={isModalOpen} onClose={onCloseModal} />
         </div>
     </div>
 }

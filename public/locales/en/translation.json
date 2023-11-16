@@ -11,5 +11,7 @@
   "Обновить страницу": "Reload the page",
   "Свернуть": "Collapse",
   "Увеличить": "Increment",
-  "Войти": "Login"
+  "Войти": "Login",
+  "Введите имя пользователя": "Enter username",
+  "Введите пароль": "Enter password"
 }
