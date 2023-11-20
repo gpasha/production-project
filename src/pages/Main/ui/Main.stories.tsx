@@ -9,7 +9,12 @@ const meta = {
     component: Main,
     tags: ['autodocs'],
     decorators: [
-        StoreDecorator
+        StoreDecorator({
+            loginForm: {
+                username: 'User',
+                password: '12345'
+            }
+        })
     ]
 } satisfies Meta<typeof Main>
 

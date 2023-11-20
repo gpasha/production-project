@@ -58,7 +58,7 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": "warn",
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",
-        "@typescript-eslint/strict-boolean-expressions": "warn",
+        "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-floating-promises": "warn",
         "react/no-deprecated": "warn",

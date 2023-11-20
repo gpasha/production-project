@@ -4,6 +4,7 @@
 
 .placeholder {
     margin-right: 5px;
+    white-space: nowrap;
 }
 
 .input {
@@ -22,6 +23,7 @@
 .caretWrapper {
     position: relative;
     flex-grow: 1;
+    width: 100%;
 }
 
 .caret {
