@@ -1,7 +1,8 @@
 import { Counter } from 'entities/Counter'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const Main = () => {
+const Main = memo(() => {
     const { t } = useTranslation('main')
     return (
         <>
@@ -9,5 +10,6 @@ const Main = () => {
             <Counter />
         </>
     )
-}
+})
+
 export default Main

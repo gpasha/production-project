@@ -16,5 +16,6 @@
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization form",
   "Неверное имя пользователи или пароль": "Invalid username or password",
-  "Выйти": "Logout"
+  "Выйти": "Logout",
+  "Страница профиля": "Profile page"
 }

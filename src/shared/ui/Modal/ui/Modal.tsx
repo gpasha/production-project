@@ -71,7 +71,6 @@ export const Modal = (props: ModalProps) => {
             <div className={classNames(cls.Modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content} onClick={onContentClick}>
-                        {/* disable-next-string i18next/no-literal-string */}
                         {children}
                     </div>
                 </div>

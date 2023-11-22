@@ -7,7 +7,16 @@
   "comments": [
     { "id": "1", "body": "some comment", "postId": 1 }
   ],
-  "profile": { "name": "typicode" },
+  "profile": {
+    "first": "Pavel",
+    "lastname": "Glebik",
+    "age": 25,
+    "currency": "BYN",
+    "country": "Belarus",
+    "city": "Minsk",
+    "username": "admin",
+    "avatar": "https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=256x"
+  },
   "users": [
     {
       "id": "1",
