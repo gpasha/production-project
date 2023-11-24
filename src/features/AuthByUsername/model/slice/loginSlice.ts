@@ -32,7 +32,7 @@ export const loginSlice = createSlice({
         state.error = action.payload
         state.isLoading = false
     })
-}
+  }
 })
 // loginByUsername
 export const { actions: loginActions, reducer: loginReducer } = loginSlice

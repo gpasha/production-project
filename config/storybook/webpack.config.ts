@@ -14,14 +14,16 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config.resolve?.extensions?.push('.ts', '.tsx')
 
     // eslint-disable-next-line no-param-reassign
-    config.module.rules = config.module.rules.map((rule: any) => {
-        // if ((rule.test as string).includes('svg')) {
-        // eslint-disable-next-line @typescript-eslint/prefer-includes
-        if (/svg/.test(rule.test as string)) {
-            return { ...rule, exclude: /\.svg$/i }
-        }
-        return rule
-    })
+    if (config.module?.rules) {
+        config.module.rules = config?.module?.rules?.map((rule: any) => {
+            // if ((rule.test as string).includes('svg')) {
+            // eslint-disable-next-line @typescript-eslint/prefer-includes
+            if (/svg/.test(rule.test as string)) {
+                return { ...rule, exclude: /\.svg$/i }
+            }
+            return rule
+        })
+    }
 
     config.module?.rules?.push({
         test: /\.svg$/i,
@@ -31,9 +33,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
     config.module?.rules?.push(buildCssLoader(true))
 
-    config.plugins.push(
+    config.plugins?.push(
         new webpack.DefinePlugin({
-            __IS_DEV__: config.mode === 'development'
+            __IS_DEV__: JSON.stringify(config.mode === 'development'),
+            __API__: ''
         })
     )
 

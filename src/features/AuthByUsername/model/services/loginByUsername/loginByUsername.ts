@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import { ThunkConfig } from 'app/providers/StoreProvider'
 import { User, userActions } from 'entities/User'
 import { USER_LOCASTORAGE_KEY } from 'shared/consts/localstorage'
 
@@ -12,11 +12,13 @@ export enum LoginErrors {
     USERNAME_OR_PASSWORD = 'Not correct username or password'
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string }>(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
     'login/loginByUsername',
     async (authData, thunkAPI) => {
+        const { extra, dispatch, rejectWithValue } = thunkAPI
+
         try {
-            const response = await axios.post<User>('http://localhost:8000/login', authData)
+            const response = await extra.api.post<User>('/login', authData)
 
             if (!response.data) {
                 throw new Error()
@@ -29,12 +31,13 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
 
             localStorage.setItem(USER_LOCASTORAGE_KEY, JSON.stringify(userData))
 
-            thunkAPI.dispatch(userActions.setAuthData(userData))
+            dispatch(userActions.setAuthData(userData))
 
+            // extra.navigate('/about')
             return response.data
         } catch (error) {
             console.log('error: ', error)
-            return thunkAPI.rejectWithValue(LoginErrors.USERNAME_OR_PASSWORD)
+            return rejectWithValue(LoginErrors.USERNAME_OR_PASSWORD)
         }
     }
 )

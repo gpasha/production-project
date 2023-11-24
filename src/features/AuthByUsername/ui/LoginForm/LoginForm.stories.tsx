@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import LoginForm from './LoginForm'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator'
 
 const initState = {
     loginForm: {
@@ -14,6 +15,7 @@ const meta = {
     component: LoginForm,
     tags: ['autodocs'],
     decorators: [
+        RouteDecorator,
         StoreDecorator(initState)
     ]
 } satisfies Meta<typeof LoginForm>

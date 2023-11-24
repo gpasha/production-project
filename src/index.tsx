@@ -8,8 +8,8 @@ import { Suspense } from 'react'
 import { StoreProvider } from 'app/providers/StoreProvider'
 
 render(
-    <StoreProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
             <ErrorBoundary>
                 <ThemeProvider>
                     <Suspense fallback={''}>
@@ -17,7 +17,7 @@ render(
                     </Suspense>
                 </ThemeProvider>
             </ErrorBoundary>
-        </BrowserRouter>
-    </StoreProvider>,
+        </StoreProvider>
+    </BrowserRouter>,
     document.getElementById('root')
 )

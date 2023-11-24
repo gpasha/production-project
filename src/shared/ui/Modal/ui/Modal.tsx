@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
-import { ReactNode, MouseEvent, useState, useRef, useEffect, useCallback } from 'react'
+import { ReactNode, MouseEvent, useState, useRef, useEffect, useCallback, MutableRefObject } from 'react'
 import { Portal } from 'shared/ui/Portal'
 
 interface ModalProps {
@@ -24,7 +24,8 @@ export const Modal = (props: ModalProps) => {
 
     const [isClosing, setIsClosing] = useState(false)
     const [isMounted, setIsMounted] = useState(false)
-    const timeRef = useRef<ReturnType<typeof setTimeout>>()
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
     const closeHandler = useCallback(() => {
         setIsClosing(true)

@@ -1,6 +1,6 @@
-import { DeepPartial } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
 import { getLoginPassword } from './getLoginPassword'
+
 describe('getLoginPassword', () => {
     test('should retrun password', () => {
         const state: DeepPartial<StateSchema> = {
