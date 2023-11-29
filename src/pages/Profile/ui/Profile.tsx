@@ -2,12 +2,14 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback, useEffect } from 'react'
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { ProfileCard, fetchProfileData, getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer } from 'entities/Profile'
+import { ProfileCard, fetchProfileData, getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer, getProfileValidateErrors } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
+import { Text, TextTheme } from 'shared/ui/Text'
+import { ProfileErrors } from 'entities/Profile/model/types/profile'
 
 interface ProfileProps {
     className?: string
@@ -18,12 +20,21 @@ const initReducers = {
 }
 
 const Profile = memo(({ className }: ProfileProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('profile')
     const dispatch = useAppDispatch()
     const formData = useSelector(getProfileForm)
     const isLoading = useSelector(getProfileIsLoading)
     const error = useSelector(getProfileError)
     const readonly = useSelector(getProfileReadonly)
+    const validateErrors = useSelector(getProfileValidateErrors)
+
+    const validateErrorTranslates = {
+        [ProfileErrors.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ProfileErrors.INCORRECT_COUNTRY]: t('Некорректный регион'),
+        [ProfileErrors.INCORRECT_USERDATA]: t('Имя и Фамилия обязательны'),
+        [ProfileErrors.NO_DATA]: t('Данные не указаны'),
+        [ProfileErrors.SERVER_ERROR]: t('Ошибка сервера')
+    }
 
     useEffect(() => {
         dispatch(fetchProfileData())
@@ -64,6 +75,9 @@ const Profile = memo(({ className }: ProfileProps) => {
     return <DynamicModuleLoader reducers={initReducers} removeAfterUnmount>
         <div className={classNames('', {}, [className])}>
             <ProfilePageHeader isLoading={isLoading} />
+            {validateErrors?.length && validateErrors.map(err => (
+                <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]} />
+            ))}
             <ProfileCard
                 data={formData}
                 isLoading={isLoading}

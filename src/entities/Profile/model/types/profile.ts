@@ -18,4 +18,12 @@ export interface ProfileSchema {
     isLoading: boolean
     error?: string
     readonly: boolean
+    validateErrors?: ProfileErrors[]
+}
+export enum ProfileErrors {
+    NO_DATA = 'NO_DATA',
+    SERVER_ERROR = 'SERVER_ERROR',
+    INCORRECT_USERDATA = 'INCORRECT_USERDATA',
+    INCORRECT_AGE = 'INCORRECT_AGE',
+    INCORRECT_COUNTRY = 'INCORRECT_COUNTRY'
 }
