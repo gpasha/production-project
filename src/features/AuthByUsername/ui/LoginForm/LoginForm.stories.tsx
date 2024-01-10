@@ -6,7 +6,8 @@ import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDeco
 const initState = {
     loginForm: {
         username: 'User',
-        password: '12345'
+        password: '12345',
+        isLoading: false
     }
 }
 

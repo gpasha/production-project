@@ -37,7 +37,9 @@ const Profile = memo(({ className }: ProfileProps) => {
     }
 
     useEffect(() => {
-        dispatch(fetchProfileData())
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData())
+        }
     }, [dispatch])
 
     const updateProfileFirstName = useCallback((value?: string) => {

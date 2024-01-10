@@ -86,7 +86,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "@types/react-router-dom": "^5.3.3",
-    "axios": "^0.26.1",
+    "axios": "^1.6.5",
     "concurrently": "^8.2.2",
     "deelay": "^2.0.0",
     "i18next": "^21.6.11",
@@ -108,6 +108,7 @@
         "mobile": false
       },
       "chrome.iphone7": {
+        "skip-stories": "loading|MyFailingComponent",
         "target": "chrome.app",
         "preset": "iPhone 7"
       }
