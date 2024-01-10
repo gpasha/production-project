@@ -35,7 +35,9 @@ export const Select = memo((props: SelectProps) => {
         onChange?.(e.target.value)
     }
 
-    const mods: ModsType = {}
+    const mods: ModsType = {
+        [cls.readonly]: readonly
+    }
 
     return <div className={classNames(cls.wrapper, mods, [className])}>
         {label && <span className={cls.label}>{label + ' >'}</span>}
