@@ -27,6 +27,8 @@ body {
 }
 
 .page-wrapper {
+    height: calc(100dvh - var(--header-height));
+    overflow-y: auto;
     flex-grow: 1;
-    padding: 20px;
+    padding: 20px 20px 20px 40px;
 }

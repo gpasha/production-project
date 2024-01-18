@@ -1,4 +1,7 @@
 {
-  "Статья": "Статья",
-  "Детальная страница статьи": "Article Detail page"
+  "Статьи": "Articles",
+  "Статья не найдена": "Article not found",
+  "Детальная страница статьи": "Article Detail page",
+  "Загрузка...": "Loading...",
+  "Произошла ошибка при загрузке": "There was an error loading"
 }

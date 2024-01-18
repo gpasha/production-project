@@ -1,6 +1,6 @@
 import { About } from 'pages/About'
 import { Articles } from 'pages/Article'
-import { ArticleDetails } from 'pages/ArticleDetail'
+import { ArticleDetailsPage } from 'pages/ArticleDetail'
 import { Main } from 'pages/Main'
 import { NotFound } from 'pages/NotFound'
 import { Profile } from 'pages/Profile'
@@ -51,7 +51,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     },
     [AppRoutes.ARTICLE_DETAILS]: {
         path: RoutePaths.article_details + ':id',
-        element: <ArticleDetails />,
+        element: <ArticleDetailsPage />,
         authOnly: true
     },
     //
